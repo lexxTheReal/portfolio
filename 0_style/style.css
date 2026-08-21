@@ -76,7 +76,7 @@ header {
     -moz-border-radius: var(--borderRad-default);
     -ms-border-radius: var(--borderRad-default);
     -o-border-radius: var(--borderRad-default);
-    border: solid 2px var(--color-glass-border);
+    border: solid 1px var(--color-glass-border);
 }
 
 header > h1 {
