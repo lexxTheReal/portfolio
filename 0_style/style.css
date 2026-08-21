@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Red+Rose:wght@300..700&display=swap');
+
+:root {
+    --color-primary: rgb(10, 10, 10);
+    --color-secondary: rgb(35, 19, 0);
+    --color-accent: rgb(255, 85, 0);
+    --color-glass-bg: rgba(255,255,255,0.25);
+    --color-glass-border: rgba(255,255,255,0.5);
+
+    --font-primary: "Inter";
+    --font-secondary: "Red Rose";
+    --font-spezial: "Bitcount Grid Double";
+
+    --transition-default: all 0.125s ease-in-out;
+    --transition-long: all 0.25s ease-in-out;
+
+    --borderRad-default: 15px;
+    --borderRad-pill: 99999px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;           
+}
+*::selection {
+    background-color: white;
+    color: var(--color-primary);
+    height: 1cqh;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+
+    overflow: auto;
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* Legacy Microsoft browsers */
+    background: var(--color-primary);
+    color: white;
+    width: 100dvw;
+    height: auto;
+}
+
+/* Chromium, Chrome, Edge, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.hunContainer {
+    width: 100dvw;
+    height: 100dvh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: relative;
+    display: flex;
+    width: 80dvw;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    background-color: var(--color-glass-bg);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: var(--borderRad-default);
+    -webkit-border-radius: var(--borderRad-default);
+    -moz-border-radius: var(--borderRad-default);
+    -ms-border-radius: var(--borderRad-default);
+    -o-border-radius: var(--borderRad-default);
+    border: solid 2px var(--color-glass-border);
+}
+
+header > h1 {
+    font-family: var(--font-spezial);
+    font-weight: 400;
+    text-transform: uppercase;
+    width: 100%;
+    height: fit-content;
+    font-size: 120pt;
+    line-height: 0.7;
+    padding-top: 1cqw;
+    position: relative;
+}
+
+header > h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 9cap;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(        90deg,        #000 0%,        #fff 50%,        #000 100%    );
+    background-size: 200% 100%;
+    animation: underlineGradient 5s linear infinite;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    -ms-border-radius: 999px;
+    -o-border-radius: 999px;
+    -webkit-animation: underlineGradient 5s linear infinite;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+@keyframes underlineGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
