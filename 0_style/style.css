@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Red+Rose:wght@300..700&display=swap');
 
 :root {
-    --color-primary: rgb(10, 10, 10);
+    --color-primary: rgb(18, 0, 0);
     --color-secondary: rgb(35, 19, 0);
     --color-accent: rgb(255, 85, 0);
-    --color-glass-bg: rgba(255,255,255,0.25);
-    --color-glass-border: rgba(255,255,255,0.5);
+    --color-glass-bg: rgba(255,255,255,0.05);
+    --color-glass-border: rgba(255,255,255,0.35);
 
     --font-primary: "Inter";
     --font-secondary: "Red Rose";
@@ -22,7 +22,8 @@
     margin: 0;
     padding: 0;
     outline: none;
-    border: none;           
+    border: none;   
+    box-sizing: border-box;        
 }
 *::selection {
     background-color: white;
@@ -33,7 +34,7 @@
 html,
 body {
     scroll-behavior: smooth;
-    box-sizing: border-box;
+    
     font-family: var(--font-primary);
     font-size: 1rem;
 
@@ -57,6 +58,7 @@ body::-webkit-scrollbar {
     height: 100dvh;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -67,7 +69,7 @@ header {
     width: 80dvw;
     height: auto;
     aspect-ratio: 3 / 2;
-    background-color: var(--color-glass-bg);
+    background: var(--color-glass-bg);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -76,19 +78,64 @@ header {
     -moz-border-radius: var(--borderRad-default);
     -ms-border-radius: var(--borderRad-default);
     -o-border-radius: var(--borderRad-default);
+    /*
     border: solid 1px var(--color-glass-border);
+    */
+    backdrop-filter: blur(5px) saturate(150%);
+    animation: init 5s ease-in;
+    -webkit-animation: init 0.25s ease-in forwards;
+    opacity: 0;
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -o-transform: translateY(50px);
 }
 
-header > h1 {
+@keyframes init {
+    to {
+        opacity: 1;
+        transform: translate(0);
+        -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+        -ms-transform: translate(0);
+        -o-transform: translate(0);
+    }
+}
+
+h1 {
     font-family: var(--font-spezial);
     font-weight: 400;
     text-transform: uppercase;
-    width: 100%;
+    width: 100%; 
     height: fit-content;
     font-size: 120pt;
     line-height: 0.7;
     padding-top: 1cqw;
     position: relative;
+}
+h2 {
+    font-family: var(--font-spezial);
+    font-weight: 300;
+    text-transform: uppercase;
+    width: fit-content; 
+    height: fit-content;
+    font-size: 60pt;
+    line-height: 0.7;
+    position: relative;
+}
+h3 {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    text-transform: uppercase;
+    width: fit-content; 
+    height: fit-content;
+    font-size: 30pt;
+    line-height: 0.7;
+    position: relative;
+}
+p {
+    font-family: var(--font-secondary);
 }
 
 header > h1::after {
@@ -100,7 +147,7 @@ header > h1::after {
     width: 9cap;
     height: 4px;
     border-radius: 999px;
-    background: linear-gradient(        90deg,        #000 0%,        #fff 50%,        #000 100%    );
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
     background-size: 200% 100%;
     animation: underlineGradient 5s linear infinite;
     -webkit-border-radius: 999px;
@@ -110,7 +157,7 @@ header > h1::after {
     -webkit-animation: underlineGradient 5s linear infinite;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);    
     -o-transform: translateX(-50%);
 }
 
@@ -122,4 +169,207 @@ header > h1::after {
     100% {
         background-position: 200% 50%;
     }
+}
+
+header > h1::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    font-size: 2rem;
+    font-weight: 100;
+    text-transform: none;
+    white-space: nowrap;
+    animation: headerChanger 15s ease-in-out infinite;
+    -webkit-animation: headerChanger 15s ease-in-out infinite;
+}
+
+@keyframes headerChanger {
+    /* I was */
+    0% {
+        content: "I was";
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    8% {
+        content: "I was";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    25% {
+        content: "I was";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Übergang zu I am */
+    33% {
+        content: "";
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    /* I am */
+    41% {
+        content: "I am";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    58% {
+        content: "I am";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Übergang zu I will be */
+    66% {
+        content: "";
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    /* I will be */
+    74% {
+        content: "I will be";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    91% {
+        content: "I will be";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Neustart */
+    100% {
+        content: "";
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+.whoami {
+    top: 15%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    width: 60dvw;
+    height: 100%;
+    text-align: right;
+    gap: 1.25rem;
+}
+
+.webDevContainer {
+    padding: 1%;
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.hunContainer > h3 {
+    padding-top: 5%;
+    text-align: center;
+    width: 80%;
+}
+
+.webDevContainer > .card {
+    height: 250px;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-glass-border);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--borderRad-default);
+    -webkit-border-radius: var(--borderRad-default);
+    -moz-border-radius: var(--borderRad-default);
+    -ms-border-radius: var(--borderRad-default);
+    -o-border-radius: var(--borderRad-default);
+    transition: var(--transition-long);
+    -webkit-transition: var(--transition-long);
+    -moz-transition: var(--transition-long);
+    -ms-transition: var(--transition-long);
+    -o-transition: var(--transition-long);
+}
+.webDevContainer > .card:hover {
+    filter: invert(0.8);
+    -webkit-filter: invert(0.8);
+}
+
+.html {
+    background: url(../2_ressourcess/html5-fill.svg) center / cover no-repeat;
+}
+.css {
+    background: url(../2_ressourcess/css3-fill.svg) center / cover no-repeat;
+}
+.js {
+    background: url(../2_ressourcess/javascript-fill.svg) center / cover no-repeat;
+}
+
+.siteShowcase {
+    width: 80%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5%;
+}
+.siteShowcase > .card {
+    position: relative;
+    height: 100%;
+    width: auto;
+    overflow: hidden;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--borderRad-default);
+    transition: var(--transition-long);
+    -webkit-transition: var(--transition-long);
+    -moz-transition: var(--transition-long);
+    -ms-transition: var(--transition-long);
+    -o-transition: var(--transition-long);
+}
+
+.siteShowcase > .card::after {
+    content: "Visit me!";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: var(--transition-long);
+    pointer-events: none;
+    -webkit-transition: var(--transition-long);
+    -moz-transition: var(--transition-long);
+    -ms-transition: var(--transition-long);
+    -o-transition: var(--transition-long);
+}
+
+.siteShowcase > .card:hover {
+    mix-blend-mode: color-dodge;
+    background-color: color-mix(
+        in srgb,
+        var(--color-secondary) 75%,
+        black
+    );
+}
+
+.siteShowcase > .card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+    color: white;
+}
+
+.pideonwash {
+    background: url(../2_ressourcess/pideonwash.png) center / 150%;
+}
+.motorsport {
+    background: url(../2_ressourcess/motorsport.png) center / contain;
 }
