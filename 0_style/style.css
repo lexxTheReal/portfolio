@@ -62,6 +62,14 @@ body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
 }
+.whatIDoContainer {
+    width: 100dvw;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 header {
     position: relative;
@@ -69,8 +77,8 @@ header {
     width: 80dvw;
     height: auto;
     aspect-ratio: 3 / 2;
-    background: var(--color-glass-bg);
     justify-content: center;
+    box-shadow: inset 0 0 100px 50px var(--color-glass-bg);
     align-items: center;
     text-align: center;
     border-radius: var(--borderRad-default);
@@ -81,7 +89,6 @@ header {
     /*
     border: solid 1px var(--color-glass-border);
     */
-    backdrop-filter: blur(5px) saturate(150%);
     animation: init 5s ease-in;
     -webkit-animation: init 0.25s ease-in forwards;
     opacity: 0;
@@ -262,7 +269,7 @@ header > h1::before {
     height: 100%;
     text-align: right;
     gap: 1.25rem;
-}
+}   
 
 .webDevContainer {
     padding: 1%;
@@ -274,7 +281,7 @@ header > h1::before {
     align-items: center;
 }
 
-.hunContainer > h3 {
+.whatIDoContainer > h3 {
     padding-top: 5%;
     text-align: center;
     width: 80%;
@@ -372,4 +379,25 @@ header > h1::before {
 }
 .motorsport {
     background: url(../2_ressourcess/motorsport.png) center / contain;
+}
+
+.fotoGrid {
+    position: relative;
+}
+
+.fotoGrid::before {
+    content: "See more!";
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+
+    display: block;
+    padding: 0.5rem 1rem;
+
+    color: white;
+    background: rgba(0, 0, 0, 0.65);
+    white-space: nowrap;
+    pointer-events: none;
 }
